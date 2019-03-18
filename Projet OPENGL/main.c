@@ -97,8 +97,7 @@ GLvoid Modelisation()
       glPopMatrix();
     }
     glPopMatrix();	
-    
-    
+       
     //EPAULE GAUCHE
 	glPushMatrix();
 	{
@@ -143,6 +142,146 @@ GLvoid Modelisation()
 	  glPopMatrix();//FIN BRAS
 	}
 	glPopMatrix(); //FIN EPAULE
+	    
+	//EPAULE DROITE
+	glPushMatrix();
+	{
+	  glTranslatef(-0.25f,0.35f,0.0f);
+	  glColor3f(1.0f,0.8f,0.3f);
+	  glutSolidSphere(0.2f,10,10);	
+	  // BRAS DROIT
+	  glPushMatrix();
+	  {
+	    glTranslatef(-0.25f,0.0f,0.0f);
+	    glPushMatrix();
+	    glScalef(3.0f,1.0f,1.0f);
+	    glutSolidCube(0.16);
+	    glPopMatrix();
+	    // COUDE DROIT
+	    glPushMatrix();
+	    {
+	      glTranslatef(-0.24f,0.0f,0.0f);
+	      glutSolidSphere(0.15f,10,10);
+	      // AVANT-BRAS DROIT
+	      glPushMatrix();
+	      {
+		glTranslatef(-0.13f,0.0f,0.0f);
+		glPushMatrix();
+		{
+		  glScalef(5.0f,1.0f,1.0f);
+		  glutSolidCube(0.12f);
+		}
+		glPopMatrix();
+		//MAIN DROITE
+		glPushMatrix();
+		{
+		  glTranslatef(-0.31f,0.0f,0.0f);
+		  glutSolidSphere(0.12f,10,10);
+		}
+		glPopMatrix();//FIN MAIN
+	      }
+	      glPopMatrix();//FIN AVANT-BRAS
+	    }
+	    glPopMatrix();//FIN COUDE
+	  }
+	  glPopMatrix();//FIN BRAS
+	}
+	glPopMatrix(); //FIN EPAULE
+ 
+	    
+    //HANCHE GAUCHE
+	glPushMatrix();
+	{
+	  glTranslatef(0.2f,-0.35f,0.0f);
+	  glColor3f(1.0f,0.8f,0.3f);
+	  glutSolidSphere(0.2f,10,10);	
+	  // CUISSE GAUCHE
+	  glPushMatrix();
+	  {
+	    glTranslatef(0.0f,-0.25f,0.0f);
+	    glPushMatrix();
+	    glScalef(1.0f,4.0f,1.0f);
+	    glutSolidCube(0.2);
+	    glPopMatrix();
+	    // GENOU GAUCHE
+	    glPushMatrix();
+	    {
+	      glTranslatef(0.0f,-0.35f,0.0f);
+	      glutSolidSphere(0.17f,10,10);
+	      // MOLLET GAUCHE
+	      glPushMatrix();
+	      {
+		glTranslatef(0.0f,-0.13f,0.0f);
+		glPushMatrix();
+		{
+		  glScalef(1.0f,6.0f,1.0f);
+		  glutSolidCube(0.16f);
+		}
+		glPopMatrix();
+		//PIED GAUCHE
+		glPushMatrix();
+		{
+		  glTranslatef(0.0f,-0.4f,0.0f);
+		  glutSolidSphere(0.14f,10,10);
+		}
+		glPopMatrix();//FIN PIED
+	      }
+	      glPopMatrix();//FIN MOLLET
+	    }
+	    glPopMatrix();//FIN GENOU
+	  }
+	  glPopMatrix();//FIN CUISSE
+	}
+	glPopMatrix(); //FIN HANCHE
+
+
+	    
+    //HANCHE DROITE
+	glPushMatrix();
+	{
+	  glTranslatef(-0.2f,-0.35f,0.0f);
+	  glColor3f(1.0f,0.8f,0.3f);
+	  glutSolidSphere(0.2f,10,10);	
+	  // CUISSE DROITE
+	  glPushMatrix();
+	  {
+	    glTranslatef(0.0f,-0.25f,0.0f);
+	    glPushMatrix();
+	    glScalef(1.0f,4.0f,1.0f);
+	    glutSolidCube(0.2);
+	    glPopMatrix();
+	    // GENOU DROIT
+	    glPushMatrix();
+	    {
+	      glTranslatef(0.0f,-0.35f,0.0f);
+	      glutSolidSphere(0.17f,10,10);
+	      // MOLLET DROIT
+	      glPushMatrix();
+	      {
+		glTranslatef(0.0f,-0.13f,0.0f);
+		glPushMatrix();
+		{
+		  glScalef(1.0f,6.0f,1.0f);
+		  glutSolidCube(0.16f);
+		}
+		glPopMatrix();
+		//PIED DROIT
+		glPushMatrix();
+		{
+		  glTranslatef(0.0f,-0.4f,0.0f);
+		  glutSolidSphere(0.14f,10,10);
+		}
+		glPopMatrix();//FIN PIED
+	      }
+	      glPopMatrix();//FIN MOLLET
+	    }
+	    glPopMatrix();//FIN GENOU
+	  }
+	  glPopMatrix();//FIN CUISSE
+	}
+	glPopMatrix(); //FIN HANCHE
+
+	
   }
   glPopMatrix(); 
   axes();
