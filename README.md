@@ -14,4 +14,4 @@ PAGE_UP/PAGE_DOWN -> Zoom in/Zoom out
 
 
 
-TO COMPILE : ./compil.sh
+# TO COMPILE : ./compil.sh
