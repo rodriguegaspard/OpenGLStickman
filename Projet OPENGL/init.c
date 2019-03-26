@@ -1,6 +1,5 @@
 #include "init.h"
 
-
 /* The number of our GLUT window */
 int window; 
 
@@ -9,13 +8,13 @@ int window;
 extern GLfloat z;
 extern GLfloat xrot;   
 extern GLfloat yrot; 
-GLuint  blend = 1;
+GLuint  blend = 0;
 GLuint  light = 0;
 
 /* A general OpenGL initialization function.  Sets all of the initial parameters. */
 GLvoid InitGL(GLsizei Width, GLsizei Height)	// We call this right after our OpenGL window is created.
 {
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);	// This Will Clear The Background Color To Black
+    glClearColor(0.0f, 1.0f, 1.0f, 0.0f);	// This Will Clear The Background Color To Black
     glClearDepth(1.0);				// Enables Clearing Of The Depth Buffer
     /*    glDepthFunc(GL_LESS);			// The Type Of Depth Test To Do */
     glDepthFunc(GL_LEQUAL);	  // Le type de test de profondeur 
@@ -31,8 +30,6 @@ GLvoid InitGL(GLsizei Width, GLsizei Height)	// We call this right after our Ope
     // setup blending
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA,GL_ONE);			// Set The Blending Function For Translucency
-
-    //lumiere();
 }
 
 /* The function called when our window is resized (which shouldn't happen, because we're fullscreen) */
@@ -46,7 +43,7 @@ GLvoid ReSizeGLScene(GLsizei Width, GLsizei Height)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
-    gluPerspective(45.0f,(GLfloat)Width/(GLfloat)Height,0.1f,100.0f);
+    gluPerspective(45.0f,(GLfloat)Width/(GLfloat)Height,0.1f,1000.0f);
     glMatrixMode(GL_MODELVIEW);
 }
 
@@ -59,11 +56,11 @@ void specialKeyPressed(int key, int x, int y)
 
     switch (key) {    
     case GLUT_KEY_PAGE_UP: // move the cube into the distance.
-	z-=0.02f;
+	z-=1.0f;
 	break;
     
     case GLUT_KEY_PAGE_DOWN: // move the cube closer.
-	z+=0.02f;
+	z+=1.0f;
 	break;
 
     case GLUT_KEY_UP: // decrease x rotation speed;
@@ -98,7 +95,7 @@ int notre_init(int argc, char** argv, void (*DrawGLScene)())
      RGBA color
      Depth buffer 
      Alpha blending */  
-    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH | GLUT_ALPHA);  
+    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH | GLUT_ALPHA);
 
     /* get a 640 x 480 window */
     glutInitWindowSize(640, 480);  
@@ -130,31 +127,15 @@ int notre_init(int argc, char** argv, void (*DrawGLScene)())
     /* Initialize our window. */
     InitGL(640, 480);
   
-    /* Start Event Processing Engine */ 
+    /* Start Event Processing Engine */
 
-// Partie modifié pour le TP7
-
-	
-	/*glEnable(GL_COLOR_MATERIAL);
-	
-	// Gestion de la lumiere
-		
-
-		float position[] = {1.0,0.0,0.0,0.0};
-		glLightfv(GL_LIGHT0, GL_POSITION, position); // Positionnement de la source lumineuse
-		
-		GLfloat ambiant[] = {0.1f,0.1f,0.1f,1.0f};
-		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambiant);
-		
-		GLfloat lightPos[] = {0.5f,0.5f,0.5f,1.0f};
-		glLightfv(GL_LIGHT0, GL_DIFFUSE, lightPos);
-		
-		glEnable(GL_LIGHTING);
-		glEnable(GL_LIGHT0); // Activation de la lumiere
-		
- */
+    glDisable(GL_BLEND);
+    glEnable(GL_DEPTH_TEST);
+    GLuint textureID[1];
+    glGenTextures(1,textureID);
+    glBindTexture(GL_TEXTURE_2D,textureID[0]);
     glutMainLoop();  
-
+    
     return 1;
 }
 

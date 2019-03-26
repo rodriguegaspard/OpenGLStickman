@@ -23,8 +23,12 @@
 #define A_MIN 97
 #define E_MIN 101
 #define Z_MIN 122
-#define S_MIN 115
+#define S_MINKEY 115
 #define Q_MIN 113
 #define D_MIN 100
+#define O_MIN 111
+
+#define I_KEY 105
+#define K_KEY 107
 
 #endif
