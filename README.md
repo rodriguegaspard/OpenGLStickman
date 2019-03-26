@@ -1,5 +1,11 @@
 # OpenGLStickman
-A simple stickman made with OpenGL
+A simple stickman made with OpenGL.
 
-TO COMPILE : gcc main.c actions.o axes.o init.o lumiere.o switch_blend.o  switch_light.o VM_init.o -lm -lGL -lGLU -lglut -no-pie -o test
-./test
+# Controls :
+Z/Q/D -> Moves around
+O -> Spawns a rainbow light orb in the character's right hand
+L -> Spawns a flashlight in his left hand
+UP/DOWN/LEFT/RIGHT -> Moves the camera around
+PAGE_UP/PAGE_DOWN -> Zoom in/Zoom out
+
+TO COMPILE : ./compil.sh
